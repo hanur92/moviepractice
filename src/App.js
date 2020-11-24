@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Movie from "./Movie";
 import axios from "axios";
+import "./Css/App.css";
 
 export class App extends Component {
   constructor(props) {
@@ -27,10 +28,14 @@ export class App extends Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <div>
-        {isLoading
-          ? "Loading..."
-          : movies.map((movie) => (
+      <section className="container">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader_text">Loading...</span>
+          </div>
+        ) : (
+          <div className="movies">
+            {movies.map((movie) => (
               <Movie
                 key={movie.id}
                 id={movie.id}
@@ -40,7 +45,9 @@ export class App extends Component {
                 poster={movie.medium_cover_image}
               ></Movie>
             ))}
-      </div>
+          </div>
+        )}
+      </section>
     );
   }
 }
