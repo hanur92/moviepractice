@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Css/App.css";
+import "./Css/Movie.css";
 
 const Movie = ({ id, year, title, summary, poster, genres }) => {
   return (
